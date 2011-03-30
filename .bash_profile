@@ -41,6 +41,8 @@ alias ll="ls -hog"
 alias bdi="bzr di | colordiff"
 alias less="less -R"
 
+alias r='redis-cli'
+alias rkeys=' r keys \* | sed -e '\''s/:[0-9]\+:/::/g'\'' | sort | uniq -c'
 
 function get() {
     printf "\033]0;__pw:"`pwd`"\007" ;
@@ -57,3 +59,4 @@ export HISTIGNORE="pwd:debuild:history*:bzr di:bzr st:debcommit -rR:debrelease:c
 
 shopt -s histappend
 PROMPT_COMMAND="$PROMPT_COMMAND;history -a"
+
