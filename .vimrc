@@ -28,8 +28,7 @@ set encoding=utf-8
 set fileencodings=utf8,cp1251
 
 highlight rightMargin ctermbg=red guibg=red
-match rightMargin /.\%>100v/
-
+autocmd FileType python match rightMargin /.\%>100v/ 
 
 set foldmethod=indent
 set foldnestmax=2

@@ -59,7 +59,7 @@ export HISTIGNORE="pwd:debuild:history*:bzr di:bzr st:debcommit -rR:debrelease:c
 
 shopt -s histappend
 
-if [ $PROMPT_COMMAND ] 
+if [ -n "${PROMPT_COMMAND}" ]
 then
     PROMPT_COMMAND="${PROMPT_COMMAND};"
 fi
