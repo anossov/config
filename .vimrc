@@ -16,13 +16,19 @@ set listchars+=trail:·
 set endofline
 
 set t_Co=256
-colorscheme desert256
+let g:zenburn_unified_CursorColumn=1
+colorscheme zenburn
+
+set cursorline cursorcolumn
 
 set nu
 set termencoding=utf-8
 set foldcolumn=3
 set encoding=utf-8
 set fileencodings=utf8,cp1251
+
+highlight rightMargin ctermbg=red guibg=red
+match rightMargin /.\%>100v/
 
 
 set foldmethod=indent
@@ -69,6 +75,7 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
+set completeopt=menu
 
 set complete=""
 set complete+=.
