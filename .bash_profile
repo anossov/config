@@ -58,5 +58,10 @@ export HISTFILESIZE=5000
 export HISTIGNORE="pwd:debuild:history*:bzr di:bzr st:debcommit -rR:debrelease:cd ~:cd ~/:cd -:man *:bzr ci:bzr up:bzr pull:bzr push:reset:fg:bg:dchi:dch"
 
 shopt -s histappend
-PROMPT_COMMAND="$PROMPT_COMMAND;history -a"
+
+if [ $PROMPT_COMMAND ] 
+then
+    PROMPT_COMMAND="${PROMPT_COMMAND};"
+fi
+PROMPT_COMMAND="${PROMPT_COMMAND}history -a"
 
