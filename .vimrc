@@ -91,6 +91,11 @@ set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
 
+map <ESC>[F <End>
+map <ESC>[H <Home>
+imap <ESC>[F <End>
+imap <ESC>[H <Home>
+
 
 function! StatuslineTrailingSpaceWarning()
     if !exists("b:statusline_trailing_space_warning")
