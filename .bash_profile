@@ -40,7 +40,7 @@ alias vrc="vim ~/.vimrc"
 alias ll="ls -hog"
 alias bdi="bzr di | colordiff"
 alias less="less -R"
-
+alias ..="cd .."
 alias r='redis-cli'
 alias rkeys=' r keys \* | sed -e '\''s/:[0-9]\+:/::/g'\'' | sort | uniq -c'
 
@@ -55,7 +55,7 @@ function get() {
 
 export HISTTIMEFORMAT="%F %T "
 export HISTFILESIZE=5000
-export HISTIGNORE="pwd:debuild:history*:bzr di:bzr st:debcommit -rR:debrelease:cd ~:cd ~/:cd -:man *:bzr ci:bzr up:bzr pull:bzr push:reset:fg:bg:dchi:dch"
+export HISTIGNORE="pwd:debuild:history*:debrelease:man *:reset:fg:bg:dchi:dch"
 
 shopt -s histappend
 
