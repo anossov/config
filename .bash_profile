@@ -26,9 +26,12 @@ export LANG=en_US.UTF-8
 
 GRAY="\\[\\e[38;05;240m\\]"
 RED="\\[\\e[01;31m\\]"
-BLUE="\\[\\e[01;34m\\]"
+BLUE="\\[\\e[38;05;26m\\]"
 STOP="\\[\\e[00m\\]"
-export PS1="$GRAY\$(date +%k:%M:%S) $RED\\h $BLUE\\W \\\$ $STOP"
+if [ ! ${HOSTCOLOR} ]; then
+    HOSTCOLOR=$RED
+fi
+export PS1="$GRAY\$(date +%k:%M:%S) $HOSTCOLOR\\h $BLUE\\W \\\$ $STOP"
 
 export DEBEMAIL="Pavel Anossov <anossov@yandex-team.ru>"
 
