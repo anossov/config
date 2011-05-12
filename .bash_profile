@@ -47,6 +47,10 @@ alias ..="cd .."
 alias r='redis-cli'
 alias rkeys=' r keys \* | sed -e '\''s/:[0-9]\+:/::/g'\'' | sort | uniq -c'
 
+alias b='debuild && debclean'
+alias i='debuild && sudo debi'
+alias release='debcommit -rR && debrelease'
+
 function get() {
     printf "\033]0;__pw:"`pwd`"\007" ;
     for file in $* ;
