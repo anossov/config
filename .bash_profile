@@ -48,7 +48,7 @@ alias r='redis-cli'
 alias rkeys=' r keys \* | sed -e '\''s/:[0-9]\+:/::/g'\'' | sort | uniq -c'
 
 alias b='debuild && debclean'
-alias i='debuild && sudo debi'
+alias i='debuild && debclean && sudo debi'
 alias release='debcommit -rR && debrelease'
 
 function get() {
@@ -71,4 +71,23 @@ then
     PROMPT_COMMAND="${PROMPT_COMMAND};"
 fi
 PROMPT_COMMAND="${PROMPT_COMMAND}history -a;"
-PROMPT_COMMAND=${PROMPT_COMMAND}'echo -ne "\033]0;${HOSTNAME%%.*}:${PWD}\007"'
+PROMPT_COMMAND=${PROMPT_COMMAND}'echo -ne "\033]0;${HOSTNAME%%.*}:${PWD##*/}\007"'
+
+
+
+
+
+
+
+
+
+
+# COLOR MAN
+
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
