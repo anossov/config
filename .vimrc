@@ -16,10 +16,10 @@ set listchars+=trail:·
 set endofline
 
 set t_Co=256
-let g:zenburn_unified_CursorColumn=1
-colorscheme zenburn
+set background=dark
+colorscheme solarized
 
-set cursorline cursorcolumn
+set cursorline
 
 set nu
 set termencoding=utf-8

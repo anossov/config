@@ -49,7 +49,7 @@ alias rkeys=' r keys \* | sed -e '\''s/:[0-9]\+:/::/g'\'' | sort | uniq -c'
 
 alias b='debuild && debclean'
 alias i='debuild && debclean && sudo debi'
-alias release='debcommit -rR && debrelease'
+alias release='debcommit -rR && debrelease --nomail'
 
 function get() {
     printf "\033]0;__pw:"`pwd`"\007" ;
