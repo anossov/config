@@ -21,6 +21,8 @@ colorscheme solarized
 
 set cursorline
 
+set mouse=a
+
 set nu
 set termencoding=utf-8
 set foldcolumn=3
