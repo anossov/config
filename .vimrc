@@ -82,6 +82,7 @@ set complete+=k
 set complete+=b
 set complete+=t
 
+au! BufWriteCmd *.py call CheckPythonSyntax()
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
@@ -96,6 +97,35 @@ map <ESC>[H <Home>
 imap <ESC>[F <End>
 imap <ESC>[H <Home>
 
+" Define the current compiler
+if exists("compiler")
+  finish
+endif
+let compiler = "python"
+
+" Set python as the make program and
+setlocal makeprg=python
+setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+
+" When writing Python file check the syntax
+
+function CheckPythonSyntax()
+  " Write the current buffer to a temporary file, check the syntax and
+  " if no syntax errors are found, write the file
+  let curfile = bufname("%")
+  let tmpfile = tempname()
+  silent execute "write! ".tmpfile
+  let output = system("python -c \"__import__('py_compile').compile(r'".tmpfile."')\" 2>&1")
+  if output != ''
+    " Make sure the output specifies the correct filename
+    let output = substitute(output, fnameescape(tmpfile), fnameescape(curfile), "g")
+    echo output
+  else
+    write
+  endif
+  " Delete the temporary file when done
+  call delete(tmpfile)
+endfunction
 
 function! StatuslineTrailingSpaceWarning()
     if !exists("b:statusline_trailing_space_warning")
