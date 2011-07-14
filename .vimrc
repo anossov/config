@@ -41,6 +41,9 @@ set showmatch
 set showcmd
 set showmode
 
+" Press Space to turn off highlighting and clear any message already displayed.
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
 set ff=unix
 
 set statusline=%f
@@ -98,6 +101,17 @@ map <ESC>[F <End>
 map <ESC>[H <Home>
 imap <ESC>[F <End>
 imap <ESC>[H <Home>
+
+
+" Abbreviations
+iab -* -*- coding: utf-8 -*-
+
+iab . self
+iab defi def __init__(self
+
+imap ( ()<left>
+imap [ []<left>
+imap { {}<left>
 
 " Define the current compiler
 if exists("compiler")
