@@ -43,6 +43,7 @@ set showmode
 
 " Press Space to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+nnoremap * *N
 
 set ff=unix
 
