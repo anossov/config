@@ -51,6 +51,9 @@ alias b='debuild && debclean'
 alias i='debuild && debclean && sudo debi'
 alias release='debcommit -rR && debrelease --nomail'
 
+alias A='source bin/activate'
+alias D='deactivate'
+
 function get() {
     printf "\033]0;__pw:"`pwd`"\007" ;
     for file in $* ;
