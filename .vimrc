@@ -11,13 +11,15 @@ set autoindent
 let python_highlight_all = 1
 
 set list
+set encoding=utf-8
+set fileencodings=utf8,cp1251
 set listchars=tab:»·
 set listchars+=trail:·
 set endofline
 
 set t_Co=256
 set background=dark
-colorscheme solarized
+colorscheme zenburn
 
 set cursorline
 
@@ -26,8 +28,6 @@ set mouse=a
 set nu
 set termencoding=utf-8
 set foldcolumn=3
-set encoding=utf-8
-set fileencodings=utf8,cp1251
 
 highlight rightMargin ctermbg=red guibg=red
 autocmd FileType python match rightMargin /.\%>100v/ 
