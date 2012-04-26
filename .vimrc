@@ -51,6 +51,9 @@ set showmode
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 nnoremap * *N
 
+noremap <F1> :bprev<CR>
+noremap <F2> :bnext<CR>
+
 set ff=unix
 
 set linespace=0
