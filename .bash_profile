@@ -23,6 +23,7 @@ fi
 #    export MANPATH
 #fi
 export LANG=en_US.UTF-8
+export LC_ALL="en_US.UTF-8"
 
 GRAY="\\[\\e[38;05;240m\\]"
 RED="\\[\\e[01;31m\\]"
