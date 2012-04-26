@@ -1,7 +1,12 @@
-set nocompatible
+filetype off
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 syntax on
 filetype on
 filetype plugin on
+filetype plugin indent on
+
 set tabstop=4 
 set shiftwidth=4
 set smarttab
@@ -33,8 +38,7 @@ highlight rightMargin ctermbg=red guibg=red
 autocmd FileType python match rightMargin /.\%>100v/ 
 
 set foldmethod=indent
-set foldnestmax=2
-set nofoldenable
+set foldlevel=99
 
 set hls
 set showmatch
@@ -80,7 +84,9 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
-set completeopt=menu
+let g:SuperTabDefaultCompletionType = "context"
+
+set completeopt=menuone,longest
 
 set complete=""
 set complete+=.
@@ -104,15 +110,38 @@ imap <ESC>[F <End>
 imap <ESC>[H <Home>
 
 
+map <leader>j :RopeGotoDefinition<CR>
+map <leader>r :RopeRename<CR>
+
+nmap <leader>a <Esc>:Ack!
+
+
 " Abbreviations
 iab -* -*- coding: utf-8 -*-
 
-iab . self
 iab defi def __init__(self
 
-imap ( ()<left>
-imap [ []<left>
-imap { {}<left>
+
+let g:pyflakes_use_quickfix = 0
+let g:pep8_map='<leader>8'
+
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+
+
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+
 
 " Define the current compiler
 if exists("compiler")
