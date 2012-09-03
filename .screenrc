@@ -1,0 +1,15 @@
+attrcolor b ".I"
+term xterm-256color
+termcapinfo rxvt-unicode ti@:te@
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+setenv LC_CTYPE en_US.UTF-8
+defutf8 on
+altscreen on
+autodetach on
+defscrollback 30000
+startup_message off
+hardstatus on
+hardstatus alwayslastline
+hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}|%D %Y-%m-%d %{= Kc} %c:%s%{-} (%l)'
+
+shell -bash
